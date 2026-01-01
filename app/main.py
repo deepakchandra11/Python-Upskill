@@ -16,7 +16,7 @@ app.include_router(appointments.router)
 # Create tables
 #Base.metadata.create_all(bind=engine)
 
-
+@app.on_event("startup")
 async def startup():
     # Create database tables
     async with engine.begin() as conn:
